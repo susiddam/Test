@@ -1,4 +1,4 @@
-##### build the project
+##### build the project using gradle
 
     ./gradlew build
 
