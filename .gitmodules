@@ -1,0 +1,3 @@
+[submodule "225-github-actions-demo"]
+	path = 225-github-actions-demo
+	url = https://github.com/fireship-io/225-github-actions-demo.git
