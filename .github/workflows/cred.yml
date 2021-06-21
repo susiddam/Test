@@ -10,5 +10,5 @@ jobs:
          uses: edplato/trufflehog-actions-scan@master
          with:
            branch: ${{ github.head_ref }}
-           scanArguments: "--regex --max_depth=10  --rules /regexes.json"
+           #scanArguments: "--regex --max_depth=10  --rules /regexes.json"
            #test runs
