@@ -1,23 +1,19 @@
-name: A workflow for ensuring credentials are not in file
-on: push
+name: MS Teams Notification
+
+on: [push, pull_request]
+
 jobs:
   build:
-    name: Cred Checker
     runs-on: ubuntu-latest
-    steps:        
-       - uses: actions/checkout@master
-       - name: trufflehog-actions-scan
-         uses: edplato/trufflehog-actions-scan@master
-         with:
-           branch: ${{ github.head_ref }}
-           #scanArguments: "--regex --max_depth=10  --rules /regexes.json"
-           #test runs
-           
-       - name: Notify dedicated teams channel
-         uses: jdcargile/ms-teams-notification@v1.3
-         with:
-          github-token: ${{ secrets.token }} # this will use the runner's token.
-          ms-teams-webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}
+
+    steps:
+      - uses: actions/checkout@v2
+      # this is the new step using the ms-teams-notification action
+      - name: Notify dedicated teams channel
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ github.token }} # this will use the runner's token.
+          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
           notification-summary: Your custom notification message 
           notification-color: 17a2b8
           timezone: America/Denver
