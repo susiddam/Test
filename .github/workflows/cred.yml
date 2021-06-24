@@ -12,8 +12,8 @@ jobs:
       - name: Notify dedicated teams channel
         uses: jdcargile/ms-teams-notification@v1.3
         with:
-          github-token: ${{ github.token }} # this will use the runner's token.
-          ms-teams-webhook-uri: ${{ secrets.MS_TEAMS_WEBHOOK_URI }}
+          github-token: ${{ secrets.token }} # this will use the runner's token.
+          ms-teams-webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}
           notification-summary: Your custom notification message 
           notification-color: 17a2b8
           timezone: America/Denver
